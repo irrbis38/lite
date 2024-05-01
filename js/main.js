@@ -1,16 +1,20 @@
 var initGetBtns = (interview, steps) => {
     var get_btn = document.querySelector(".scr_quiz__get_btn");
+    var header = document.querySelector(".scr_header");
 
     if (!get_btn || !interview || steps.length < 1) return;
 
     get_btn.addEventListener("click", () => {
         interview.classList.add("active");
+        header.classList.add("fixed");
+        document.body.classList.add("lock");
     });
 };
 
 var initCloseBtns = (interview, steps) => {
     var close_btns = Array.from(document.querySelectorAll(".quiz-close"));
     var confirm = document.querySelector(".scr_quiz__confirm");
+    var header = document.querySelector(".scr_header");
 
     if (close_btns.length < 1) return;
 
@@ -24,6 +28,8 @@ var initCloseBtns = (interview, steps) => {
             );
 
             confirm.classList.remove("active");
+            header.classList.remove("fixed");
+            document.body.classList.remove("lock");
         });
     });
 };
