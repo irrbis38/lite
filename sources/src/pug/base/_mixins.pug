@@ -43,6 +43,20 @@ mixin pictureNew(name, ext, altText, big_size, mid_size, sm_size, width, height,
         img(src= src sizes= sizes srcset= imgSrcset alt= altText width= width height= height)
 
 
+mixin imgWithCustomClass(className, imgSizes, imgSrcset, imgSrc, alt, width, height, isLazy)
+    img(
+        class= className
+        sizes= imgSizes
+        srcset= imgSrcset
+        src= "images/" + imgSrc + ".webp"
+        alt=(alt ? alt : false )
+        width=(width ? width : false )
+        height=(height ? height : false )
+        loading=(isLazy ? 'lazy' : false )
+        decoding="async"
+    )
+
+
 mixin breadcrumbs(arr,cur)
     .b-breadcrumbs
         .container

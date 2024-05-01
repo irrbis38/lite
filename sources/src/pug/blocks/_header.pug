@@ -1,2 +1,16 @@
-header.header
-    .container Header
+header.scr_header
+    .container.scr_header__container
+
+        btn.scr_header__logo.quiz-close
+            picture 
+                //- source(media="min-width: 576px" srcset="./images/logo.svg" width="145" height="19")
+                source(media="(max-width: 767px)" srcset="./images/logo-small.svg" width="170" height="37")
+                img(src="./images/logo.svg" width="145" height="19" alt="Логотип компании Лите")
+
+            span Студия аппаратной косметологии
+
+        a.scr_header__phone(href="tel:+79288849090" aria-label="Позвонить в компанию Лите")
+            span +7 (928) 884-90-90
+            span Звонок
+
+    .scr_header__progress: span

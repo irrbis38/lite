@@ -1,3 +1,184 @@
-header {
-  padding: 20px;
+.scr_header {
+    position: relative;
+    z-index: 4;
+    padding: 35px 0;
+    border-bottom: 2px solid #f6f6f2;
+
+    @include xl {
+        padding: 33px 0;
+    }
+
+    @include lg {
+        padding: 31px 0;
+    }
+
+    @include sm {
+        padding: 26px 0;
+    }
+
+    @include xs {
+        padding: 25px 0 20px;
+    }
+}
+
+.scr_header__container {
+    max-width: 1880px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+
+    @include sm {
+        padding: 0 30px;
+    }
+}
+
+.scr_header__logo {
+    display: flex;
+    align-items: center;
+    gap: 0 60px;
+    cursor: pointer;
+
+    img {
+        display: block;
+        width: 145px;
+        height: auto;
+    }
+
+    span {
+        white-space: nowrap;
+        font-weight: 400;
+        font-size: 20px;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: #c5c5bb;
+    }
+
+    @include lg {
+        gap: 0 56px;
+
+        img {
+            width: 136px;
+        }
+
+        span {
+            font-size: 18px;
+            letter-spacing: 0.06em;
+        }
+    }
+
+    @include sm {
+        gap: 0 29px;
+
+        img {
+            width: 113px;
+        }
+
+        span {
+            font-size: 15px;
+        }
+    }
+
+    @include xs {
+        flex-direction: column;
+        gap: 2px 0;
+
+        img {
+            width: 167px;
+        }
+
+        span {
+            display: none;
+        }
+    }
+}
+
+.scr_header__phone {
+    position: relative;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 0.03em;
+    color: $color_dark1;
+    transform: translateX(-25px);
+
+    &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        bottom: -9px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: $color_green;
+        transition: transform 0.2s ease-out;
+    }
+
+    span {
+        &:nth-child(2) {
+            display: none;
+        }
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            &::after {
+                transform: scaleX(1.1);
+            }
+        }
+    }
+
+    @include xl {
+        transform: translateX(-3px);
+    }
+
+    @include lg {
+        font-size: 18px;
+        text-align: right;
+        transform: translateX(0);
+    }
+
+    @include sm {
+        font-size: 15px;
+    }
+
+    @include xs {
+        &::after {
+            bottom: -2px;
+            height: 2px;
+        }
+
+        span {
+            &:nth-child(1) {
+                display: none;
+            }
+
+            &:nth-child(2) {
+                display: block;
+                font-size: 16px;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+.scr_header__progress {
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    overflow: hidden;
+
+    span {
+        display: block;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        height: 8px;
+        background-color: $color_green;
+        transform: translateX(-100%);
+        transition: transform 0.2s ease-out;
+    }
 }
