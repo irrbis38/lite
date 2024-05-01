@@ -17,9 +17,13 @@ block page
                 p.scr_quiz__cta Ответьте на #[span 3 вопроса] #[br.mobile_only]и получите максимальную скидку
 
         .scr_quiz__wrapper
-            button.scr_quiz__get_btn(type="button" aria-label="Получить скидку")
-                span Хочу
-                span Получить скидку
+            .container
+                button.scr_quiz__get_btn(type="button" aria-label="Получить скидку")
+                    span Получить скидку
+                    
+                //- button.scr_quiz__get_btn(type="button" aria-label="Получить скидку")
+                //-     span Хочу
+                //-     span Получить скидку
 
             .scr_quiz__img
                 - var imgSrcset = "./images/scr_quiz/scr_quiz_bg_640.webp 640w, ./images/scr_quiz/scr_quiz_bg_1000.webp 1000w, ./images/scr_quiz/scr_quiz_bg_1600.webp 1600w, ./images/scr_quiz/scr_quiz_bg_2000.webp 2000w, ./images/scr_quiz/scr_quiz_bg_3840.webp 3840w"
@@ -47,7 +51,7 @@ block page
                 fieldset.scr_quiz__fieldset 
 
                     label.scr_quiz__label.scr_quiz__label_radio
-                        input(type="radio" name="question_1" value="yes" checked)
+                        input(type="radio" name="question_1" value="yes")
                         span.scr_quiz__fake Да
 
                     label.scr_quiz__label.scr_quiz__label_radio
@@ -69,7 +73,7 @@ block page
                 fieldset.scr_quiz__fieldset 
 
                     label.scr_quiz__label.scr_quiz__label_radio
-                        input(type="radio" name="question_2" value="first_reason" checked)
+                        input(type="radio" name="question_2" value="first_reason")
                         span.scr_quiz__fake Вросшие#[br]волосы
 
                     label.scr_quiz__label.scr_quiz__label_radio
@@ -105,7 +109,7 @@ block page
                 fieldset.scr_quiz__fieldset 
 
                     label.scr_quiz__label.scr_quiz__label_checkbox
-                        input(type="checkbox" name="question_3" value="bikini" checked)
+                        input(type="checkbox" name="question_3" value="bikini")
                         span.scr_quiz__fake Бикини
 
                     label.scr_quiz__label.scr_quiz__label_checkbox
@@ -148,7 +152,7 @@ block page
 
                     .scr_quiz__messenger
                         label.scr_quiz__messenger_label
-                            input(type="radio" name="user_messenger" checked)
+                            input(type="radio" name="user_messenger")
                             span ЗВОНОК
                         label.scr_quiz__messenger_label
                             input(type="radio" name="user_messenger")
@@ -158,6 +162,8 @@ block page
                             span Telegram
 
                     input.scr_quiz__submit(type="submit" value="получить скидку")
+                button.scr_quiz__return.quiz-backward(type="button" aria-label="Вернуться на шаг назад") Назад
+
 
 
             .scr_quiz__confirm

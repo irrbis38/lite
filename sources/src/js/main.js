@@ -100,63 +100,63 @@ var formSubmit = (steps) => {
     });
 };
 
-var initMagneticButtons = () => {
-    var area = document.querySelector(".scr_quiz__wrapper");
-    var btn = document.querySelector(".scr_quiz__get_btn");
+// var initMagneticButtons = () => {
+//     var area = document.querySelector(".scr_quiz__wrapper");
+//     var btn = document.querySelector(".scr_quiz__get_btn");
 
-    if (!area || !btn) return;
+//     if (!area || !btn) return;
 
-    var parallaxIt = (e, target, movement = 1) => {
-        var boundingRect = area.getBoundingClientRect();
-        var relX = e.pageX - boundingRect.left;
-        var relY = e.pageY - boundingRect.top;
-        var scrollTop =
-            window.pageYOffset || document.documentElement.scrollTop;
+//     var parallaxIt = (e, target, movement = 1) => {
+//         var boundingRect = area.getBoundingClientRect();
+//         var relX = e.pageX - boundingRect.left;
+//         var relY = e.pageY - boundingRect.top;
+//         var scrollTop =
+//             window.pageYOffset || document.documentElement.scrollTop;
 
-        requestAnimationFrame(() => {
-            target.style.transform = `translate(${
-                (relX - boundingRect.width / 2 + target.scrollWidth / 1.5) *
-                movement
-            }px, ${
-                (relY -
-                    boundingRect.height / 2 -
-                    scrollTop +
-                    target.scrollHeight / 1.5) *
-                movement
-            }px)`;
-        });
-    };
+//         requestAnimationFrame(() => {
+//             target.style.transform = `translate(${
+//                 (relX - boundingRect.width / 2 + target.scrollWidth / 1.5) *
+//                 movement
+//             }px, ${
+//                 (relY -
+//                     boundingRect.height / 2 -
+//                     scrollTop +
+//                     target.scrollHeight / 1.5) *
+//                 movement
+//             }px)`;
+//         });
+//     };
 
-    var callParallax = (e) => {
-        btn.classList.add("active");
-        parallaxIt(e, btn);
-    };
+//     var callParallax = (e) => {
+//         btn.classList.add("active");
+//         parallaxIt(e, btn);
+//     };
 
-    var leaveHandler = () => {
-        btn.style.transform = `translate(0px, 0px)`;
-        btn.classList.remove("active");
-    };
+//     var leaveHandler = () => {
+//         btn.style.transform = `translate(0px, 0px)`;
+//         btn.classList.remove("active");
+//     };
 
-    if (window.innerWidth > 767) {
-        area.addEventListener("mousemove", callParallax);
-        area.addEventListener("mouseleave", leaveHandler);
-    }
+//     if (window.innerWidth > 767) {
+//         area.addEventListener("mousemove", callParallax);
+//         area.addEventListener("mouseleave", leaveHandler);
+//     }
 
-    // toggle header handlers by resize
-    var mqMin767 = window.matchMedia("(min-width: 767px)");
+//     // toggle header handlers by resize
+//     var mqMin767 = window.matchMedia("(min-width: 767px)");
 
-    var handleMQ = (e) => {
-        if (e.matches) {
-            area.addEventListener("mousemove", callParallax);
-            area.addEventListener("mouseleave", leaveHandler);
-        } else {
-            area.removeEventListener("mousemove", callParallax);
-            area.removeEventListener("mouseleave", leaveHandler);
-        }
-    };
+//     var handleMQ = (e) => {
+//         if (e.matches) {
+//             area.addEventListener("mousemove", callParallax);
+//             area.addEventListener("mouseleave", leaveHandler);
+//         } else {
+//             area.removeEventListener("mousemove", callParallax);
+//             area.removeEventListener("mouseleave", leaveHandler);
+//         }
+//     };
 
-    mqMin767.addEventListener("change", handleMQ);
-};
+//     mqMin767.addEventListener("change", handleMQ);
+// };
 
 document.addEventListener("DOMContentLoaded", () => {
     var interview = document.querySelector(".scr_quiz__interview");
@@ -169,5 +169,5 @@ document.addEventListener("DOMContentLoaded", () => {
     initForwardBtns(interview, steps);
     formSubmit(steps);
 
-    initMagneticButtons();
+    // initMagneticButtons();
 });
