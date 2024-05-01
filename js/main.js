@@ -1,14 +1,17 @@
 var initGetBtns = (interview, steps) => {
     var get_btn = document.querySelector(".scr_quiz__get_btn");
+    var wrapper = document.querySelector(".scr_quiz__wrapper");
     var header = document.querySelector(".scr_header");
 
     if (!get_btn || !interview || steps.length < 1) return;
 
-    get_btn.addEventListener("click", () => {
-        interview.classList.add("active");
-        header.classList.add("fixed");
-        document.body.classList.add("lock");
-    });
+    [get_btn, wrapper].forEach((item) =>
+        item.addEventListener("click", () => {
+            interview.classList.add("active");
+            header.classList.add("fixed");
+            document.body.classList.add("lock");
+        })
+    );
 };
 
 var initCloseBtns = (interview, steps) => {
@@ -97,6 +100,62 @@ var formSubmit = (steps) => {
     });
 };
 
+var initMagneticButtons = () => {
+    var area = document.querySelector(".scr_quiz__wrapper");
+    var btn = document.querySelector(".scr_quiz__get_btn");
+
+    if (!area || !btn) return;
+
+    var parallaxIt = (e, target, movement = 1) => {
+        var boundingRect = area.getBoundingClientRect();
+        var relX = e.pageX - boundingRect.left;
+        var relY = e.pageY - boundingRect.top;
+        var scrollTop =
+            window.pageYOffset || document.documentElement.scrollTop;
+
+        target.style.transform = `translate(${
+            (relX - boundingRect.width / 2 + target.scrollWidth / 1.5) *
+            movement
+        }px, ${
+            (relY -
+                boundingRect.height / 2 -
+                scrollTop +
+                target.scrollHeight / 1.5) *
+            movement
+        }px)`;
+    };
+
+    var callParallax = (e) => {
+        btn.classList.add("active");
+        parallaxIt(e, btn);
+    };
+
+    var leaveHandler = () => {
+        btn.style.transform = `translate(0px, 0px)`;
+        btn.classList.remove("active");
+    };
+
+    if (window.innerWidth > 767) {
+        area.addEventListener("mousemove", callParallax);
+        area.addEventListener("mouseleave", leaveHandler);
+    }
+
+    // toggle header handlers by resize
+    var mqMin767 = window.matchMedia("(min-width: 767px)");
+
+    var handleMQ = (e) => {
+        if (e.matches) {
+            area.addEventListener("mousemove", callParallax);
+            area.addEventListener("mouseleave", leaveHandler);
+        } else {
+            area.removeEventListener("mousemove", callParallax);
+            area.removeEventListener("mouseleave", leaveHandler);
+        }
+    };
+
+    mqMin767.addEventListener("change", handleMQ);
+};
+
 document.addEventListener("DOMContentLoaded", () => {
     var interview = document.querySelector(".scr_quiz__interview");
     var steps = Array.from(document.querySelectorAll(".scr_quiz__step"));
@@ -107,4 +166,6 @@ document.addEventListener("DOMContentLoaded", () => {
     initBackwardBtns(interview, steps);
     initForwardBtns(interview, steps);
     formSubmit(steps);
+
+    initMagneticButtons();
 });
