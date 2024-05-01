@@ -46,7 +46,9 @@
           </div>
         </div>
         <div class="scr_quiz__wrapper">
-          <button class="scr_quiz__get_btn" type="button" aria-label="Получить скидку"><span>Хочу</span><span>Получить скидку</span></button>
+          <div class="container">
+            <button class="scr_quiz__get_btn" type="button" aria-label="Получить скидку"><span>Получить скидку</span></button>
+          </div>
           <div class="scr_quiz__img"><img sizes="100vw" srcset="./images/scr_quiz/scr_quiz_bg_640.webp 640w, ./images/scr_quiz/scr_quiz_bg_1000.webp 1000w, ./images/scr_quiz/scr_quiz_bg_1600.webp 1600w, ./images/scr_quiz/scr_quiz_bg_2000.webp 2000w, ./images/scr_quiz/scr_quiz_bg_3840.webp 3840w" src="images/undefined.webp" alt="Лазерная эпиляция" width="1920" height="525" decoding="async"/>
             <div class="scr_quiz__curve"></div>
           </div>
@@ -63,7 +65,7 @@
             <p class="scr_quiz__hint">Выберите один вариант ответа</p>
             <fieldset class="scr_quiz__fieldset"> 
               <label class="scr_quiz__label scr_quiz__label_radio">
-                <input type="radio" name="question_1" value="yes" checked><span class="scr_quiz__fake">Да</span>
+                <input type="radio" name="question_1" value="yes"><span class="scr_quiz__fake">Да</span>
               </label>
               <label class="scr_quiz__label scr_quiz__label_radio">
                 <input type="radio" name="question_1" value="no"><span class="scr_quiz__fake">Нет</span>
@@ -77,7 +79,7 @@
             <p class="scr_quiz__hint">Выберите один вариант ответа</p>
             <fieldset class="scr_quiz__fieldset"> 
               <label class="scr_quiz__label scr_quiz__label_radio">
-                <input type="radio" name="question_2" value="first_reason" checked><span class="scr_quiz__fake">Вросшие<br>волосы</span>
+                <input type="radio" name="question_2" value="first_reason"><span class="scr_quiz__fake">Вросшие<br>волосы</span>
               </label>
               <label class="scr_quiz__label scr_quiz__label_radio">
                 <input type="radio" name="question_2" value="second_reason"><span class="scr_quiz__fake">Раздражение<br>от бритья</span>
@@ -100,7 +102,7 @@
             <p class="scr_quiz__hint">Выберите один или более варианта ответа</p>
             <fieldset class="scr_quiz__fieldset"> 
               <label class="scr_quiz__label scr_quiz__label_checkbox">
-                <input type="checkbox" name="question_3" value="bikini" checked><span class="scr_quiz__fake">Бикини</span>
+                <input type="checkbox" name="question_3" value="bikini"><span class="scr_quiz__fake">Бикини</span>
               </label>
               <label class="scr_quiz__label scr_quiz__label_checkbox">
                 <input type="checkbox" name="question_3" value="calves"><span class="scr_quiz__fake">Голени</span>
@@ -129,7 +131,7 @@
               <input class="scr_quiz__user_phone scr_quiz__input" type="text" name="user_phone" placeholder="ваш номер">
               <div class="scr_quiz__messenger">
                 <label class="scr_quiz__messenger_label">
-                  <input type="radio" name="user_messenger" checked><span>ЗВОНОК</span>
+                  <input type="radio" name="user_messenger"><span>ЗВОНОК</span>
                 </label>
                 <label class="scr_quiz__messenger_label">
                   <input type="radio" name="user_messenger"><span>WhatsApp</span>
@@ -140,6 +142,7 @@
               </div>
               <input class="scr_quiz__submit" type="submit" value="получить скидку">
             </fieldset>
+            <button class="scr_quiz__return quiz-backward" type="button" aria-label="Вернуться на шаг назад">Назад</button>
           </div>
           <div class="scr_quiz__confirm">
             <h2 class="scr_quiz__thanks">Спасибо!</h2>
