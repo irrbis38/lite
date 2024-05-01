@@ -284,6 +284,7 @@
     position: relative;
     height: 525px;
     margin-top: 44px;
+    cursor: pointer;
 
     @include xl {
         height: 446px;
@@ -301,6 +302,8 @@
 
     @include xs {
         height: auto;
+        cursor: default;
+        pointer-events: none;
     }
 }
 
@@ -413,6 +416,7 @@
     cursor: pointer;
     transition: background-color 0.2s ease-out, color 0.2s ease-out,
         transform 0.2s ease-out;
+    pointer-events: none;
 
     &::after {
         content: "";
@@ -447,6 +451,15 @@
         }
     }
 
+    &.active {
+        color: $color_dark2;
+
+        &::after {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+    }
+
     @include xl {
         left: 27%;
         width: 198px;
@@ -477,6 +490,7 @@
         border-radius: 0;
         background-color: transparent;
         color: $color_dark1;
+        pointer-events: all;
 
         &::after {
             display: none;
