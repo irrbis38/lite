@@ -113,16 +113,18 @@ var initMagneticButtons = () => {
         var scrollTop =
             window.pageYOffset || document.documentElement.scrollTop;
 
-        target.style.transform = `translate(${
-            (relX - boundingRect.width / 2 + target.scrollWidth / 1.5) *
-            movement
-        }px, ${
-            (relY -
-                boundingRect.height / 2 -
-                scrollTop +
-                target.scrollHeight / 1.5) *
-            movement
-        }px)`;
+        requestAnimationFrame(() => {
+            target.style.transform = `translate(${
+                (relX - boundingRect.width / 2 + target.scrollWidth / 1.5) *
+                movement
+            }px, ${
+                (relY -
+                    boundingRect.height / 2 -
+                    scrollTop +
+                    target.scrollHeight / 1.5) *
+                movement
+            }px)`;
+        });
     };
 
     var callParallax = (e) => {
