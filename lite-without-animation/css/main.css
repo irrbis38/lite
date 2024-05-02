@@ -252,6 +252,12 @@ input {
   color: inherit;
   background-color: transparent
 }
+a,
+button,
+input {
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
+  -webkit-tap-highlight-color: transparent
+}
 button {
   cursor: pointer
 }
@@ -942,6 +948,9 @@ textarea {
     border-top-color: #2b2922
   }
 }
+.scr_quiz__get_btn:active {
+  background-color: #63724b
+}
 @media (max-width:1300px) {
   .scr_quiz__get_btn {
     min-height: 90px;
@@ -1120,24 +1129,22 @@ textarea {
 }
 .scr_quiz__step {
   padding-top: 114px;
-  padding-bottom: 114px
+  padding-bottom: 70px
 }
 @media (max-width:1300px) {
   .scr_quiz__step {
-    padding-top: 100px;
-    padding-bottom: 100px
+    padding-top: 100px
   }
 }
 @media (max-width:991px) {
   .scr_quiz__step {
-    padding-top: 84px;
-    padding-bottom: 84px
+    padding-top: 84px
   }
 }
 @media (max-width:767px) {
   .scr_quiz__step {
     width: 100%;
-    padding: 93px 30px 50px
+    padding: 93px 30px 30px
   }
 }
 .scr_quiz__counter {
@@ -1402,7 +1409,15 @@ textarea {
   color: #8d8d80;
   background-color: #f3f3ef;
   cursor: pointer;
-  transition: color .2s ease-out,background-color .2s ease-out
+  transition: color .2s ease-out,background-color .2s ease-out,-webkit-transform .2s ease-out;
+  transition: color .2s ease-out,background-color .2s ease-out,transform .2s ease-out;
+  transition: color .2s ease-out,background-color .2s ease-out,transform .2s ease-out,-webkit-transform .2s ease-out;
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
+  -webkit-tap-highlight-color: transparent
+}
+.scr_quiz__fake:active {
+  -webkit-transform: scale(.97);
+  transform: scale(.97)
 }
 @media (hover:hover) {
   .scr_quiz__fake:hover {
@@ -1733,6 +1748,9 @@ textarea {
     background-color: #718255
   }
 }
+.scr_quiz__submit:active {
+  background-color: #63724b
+}
 @media (max-width:1600px) {
   .scr_quiz__submit {
     margin-top: 53px
@@ -1753,7 +1771,7 @@ textarea {
 }
 .scr_quiz__confirm {
   padding-top: 290px;
-  padding-bottom: 100px
+  padding-bottom: 50px
 }
 @media (max-width:1300px) {
   .scr_quiz__confirm {
@@ -1767,7 +1785,7 @@ textarea {
 }
 @media (max-width:767px) {
   .scr_quiz__confirm {
-    padding: 190px 30px 0
+    padding: 190px 30px 50px
   }
 }
 .scr_quiz__close {
