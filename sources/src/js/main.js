@@ -14,12 +14,11 @@ var moveProgressLine = () => {
 
 var initGetBtns = (interview, steps) => {
     var get_btn = document.querySelector(".scr_quiz__get_btn");
-    var wrapper = document.querySelector(".scr_quiz__wrapper");
     var header = document.querySelector(".scr_header");
 
     if (!get_btn || !interview || steps.length < 1) return;
 
-    [get_btn, wrapper].forEach((item) =>
+    [get_btn].forEach((item) =>
         item.addEventListener("click", () => {
             interview.classList.add("active");
             header.classList.add("fixed");
@@ -33,13 +32,15 @@ var initCloseBtns = (interview, steps) => {
     var close_btns = Array.from(document.querySelectorAll(".quiz-close"));
     var confirm = document.querySelector(".scr_quiz__confirm");
     var header = document.querySelector(".scr_header");
+    var get_btn = document.querySelector(".scr_quiz__get_btn");
 
     if (close_btns.length < 1) return;
 
     close_btns.forEach((btn) => {
         btn.addEventListener("click", () => {
             interview.style.display = "none";
-            setTimeout(() => (interview.style.display = "block"), 1000);
+            setTimeout(() => (interview.style.display = "block"), 500);
+            get_btn.setAttribute("disabled", "disabled");
             interview.classList.remove("active");
             steps.forEach((step) =>
                 step.dataset.step === "1"
@@ -52,7 +53,10 @@ var initCloseBtns = (interview, steps) => {
             document.body.classList.remove("lock");
             progress.style.display = "none";
             progress.style.width = `0%`;
-            setTimeout(() => (progress.style.display = "block"), 1000);
+            setTimeout(() => {
+                progress.style.display = "block";
+                get_btn.removeAttribute("disabled");
+            }, 500);
         });
     });
 };
