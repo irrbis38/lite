@@ -7,8 +7,6 @@ var moveProgressLine = () => {
         item.classList.contains("active")
     )[0];
 
-    console.log((active_step.dataset.step / len) * 100);
-
     progress.style.width = `${(active_step.dataset.step / len) * 100}%`;
 };
 
