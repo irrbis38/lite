@@ -23,6 +23,8 @@ var initCloseBtns = (interview, steps) => {
 
     close_btns.forEach((btn) => {
         btn.addEventListener("click", () => {
+            interview.style.display = "none";
+            setTimeout(() => (interview.style.display = "block"), 1000);
             interview.classList.remove("active");
             steps.forEach((step) =>
                 step.dataset.step === "1"
@@ -56,7 +58,9 @@ var initRadioBtns = (interview, steps) => {
     const NEXT = "next";
 
     radio_btns.forEach((btn) => {
-        btn.addEventListener("click", () => moveStep(btn, NEXT));
+        btn.addEventListener("click", () =>
+            setTimeout(() => moveStep(btn, NEXT), 500)
+        );
     });
 };
 
@@ -80,7 +84,9 @@ var initForwardBtns = () => {
     const NEXT = "next";
 
     forward_btns.forEach((btn) => {
-        btn.addEventListener("click", () => moveStep(btn, NEXT));
+        btn.addEventListener("click", () =>
+            setTimeout(() => moveStep(btn, NEXT), 500)
+        );
     });
 };
 

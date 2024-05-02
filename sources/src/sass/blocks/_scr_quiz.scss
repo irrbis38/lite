@@ -284,7 +284,7 @@
     position: relative;
     height: 525px;
     margin-top: 44px;
-    cursor: pointer;
+    // cursor: pointer;
 
     .container {
         position: relative;
@@ -306,7 +306,7 @@
 
     @include xs {
         height: auto;
-        cursor: default;
+        // cursor: default;
         pointer-events: none;
     }
 }
@@ -691,26 +691,41 @@
     overflow-y: auto;
 
     display: none;
+    display: flex;
+    opacity: 0;
+    transform: scale(0.8) translateY(100px);
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.4s ease-out, visibility 0.4s ease-out,
+        transform 0.4s ease-out;
+    pointer-events: none;
 
     &.active {
-        display: flex;
+        // display: flex;
+        opacity: 1;
+        transform: scale(1) translateY(0px);
+        visibility: visible;
+        pointer-events: all;
     }
 }
 
 .scr_quiz__step {
     padding-top: 114px;
+    padding-bottom: 114px;
 
     @include lg {
         padding-top: 100px;
+        padding-bottom: 100px;
     }
 
     @include sm {
         padding-top: 84px;
+        padding-bottom: 84px;
     }
 
     @include xs {
         width: 100%;
-        padding: 93px 30px 0;
+        padding: 93px 30px 50px;
     }
 }
 
@@ -816,7 +831,7 @@
     // justify-items: center;
     gap: 20px;
     flex-wrap: wrap;
-    margin: 0;
+    margin: 0 auto;
     margin-bottom: 110px;
     padding: 0;
     appearance: none;
@@ -1307,6 +1322,7 @@
 
 .scr_quiz__confirm {
     padding-top: 290px;
+    padding-bottom: 100px;
 
     @include lg {
         padding-top: 260px;
@@ -1368,17 +1384,81 @@
 // }
 
 .scr_quiz__step {
-    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    overflow-y: auto;
+    pointer-events: none;
+    // display: none;
 
     &.active {
-        display: block;
+        // display: block;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .scr_quiz__interview.active &.active {
+        pointer-events: all;
     }
 }
 
 .scr_quiz__confirm {
-    display: none;
+    // display: none;
+    visibility: hidden;
+    overflow-y: auto;
+    pointer-events: none;
 
     &.active {
-        display: block;
+        // display: block;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+    }
+}
+
+// animation
+.scr_quiz__question,
+.scr_quiz__hint,
+.scr_quiz__fieldset,
+.scr_quiz__user_data_fieldset,
+.scr_quiz__thanks,
+.scr_quiz__close {
+    transform: translateY(10px);
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.scr_quiz__hint,
+.scr_quiz__thanks {
+    transition-delay: 0.15s;
+}
+
+.scr_quiz__fieldset,
+.scr_quiz__user_data_fieldset,
+.scr_quiz__close {
+    transition-delay: 0.3s;
+}
+
+.scr_quiz__step.active {
+    .scr_quiz__question,
+    .scr_quiz__hint,
+    .scr_quiz__fieldset,
+    .scr_quiz__user_data_fieldset {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.scr_quiz__confirm.active {
+    .scr_quiz__hint,
+    .scr_quiz__thanks,
+    .scr_quiz__close {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
