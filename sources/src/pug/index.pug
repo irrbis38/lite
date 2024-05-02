@@ -148,11 +148,11 @@ block page
                 fieldset.scr_quiz__user_data_fieldset
                     input.scr_quiz__user_name.scr_quiz__input(type="text" name="user_name" placeholder="ваше имя")
 
-                    input.scr_quiz__user_phone.scr_quiz__input(type="text" name="user_phone" placeholder="ваш номер")
+                    input.scr_quiz__user_phone.scr_quiz__input.required(type="text" name="user_phone" placeholder="ваш номер")
 
                     .scr_quiz__messenger
                         label.scr_quiz__messenger_label
-                            input(type="radio" name="user_messenger")
+                            input(type="radio" name="user_messenger" checked)
                             span ЗВОНОК
                         label.scr_quiz__messenger_label
                             input(type="radio" name="user_messenger")

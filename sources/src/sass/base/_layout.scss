@@ -45,10 +45,14 @@ body.noscroll {
     max-width: 1560px;
     min-width: 320px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px;
 
     @include lg {
         max-width: 1074px;
+    }
+
+    @include sm {
+        padding: 0 30px;
     }
 }
 

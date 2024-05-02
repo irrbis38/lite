@@ -1,3 +1,17 @@
+var steps = Array.from(document.querySelectorAll(".scr_quiz__step"));
+var len = steps.length;
+var progress = document.querySelector(".progress-line");
+
+var moveProgressLine = () => {
+    var active_step = steps.filter((item) =>
+        item.classList.contains("active")
+    )[0];
+
+    console.log((active_step.dataset.step / len) * 100);
+
+    progress.style.width = `${(active_step.dataset.step / len) * 100}%`;
+};
+
 var initGetBtns = (interview, steps) => {
     var get_btn = document.querySelector(".scr_quiz__get_btn");
     var wrapper = document.querySelector(".scr_quiz__wrapper");
@@ -10,6 +24,7 @@ var initGetBtns = (interview, steps) => {
             interview.classList.add("active");
             header.classList.add("fixed");
             document.body.classList.add("lock");
+            moveProgressLine();
         })
     );
 };
@@ -35,6 +50,9 @@ var initCloseBtns = (interview, steps) => {
             confirm.classList.remove("active");
             header.classList.remove("fixed");
             document.body.classList.remove("lock");
+            progress.style.display = "none";
+            progress.style.width = `0%`;
+            setTimeout(() => (progress.style.display = "block"), 1000);
         });
     });
 };
@@ -46,6 +64,7 @@ var moveStep = (btn, dir) => {
     var next_step = current_step[direction];
     current_step.classList.remove("active");
     next_step.classList.add("active");
+    moveProgressLine();
 };
 
 var initRadioBtns = (interview, steps) => {
@@ -95,14 +114,33 @@ var formSubmit = (steps) => {
 
     if (!form) return;
 
+    var inputs = Array.from(form.elements);
+
+    var required_inputs = inputs.filter((input) =>
+        input.classList.contains("required")
+    );
+
     form.addEventListener("submit", (e) => {
         e.preventDefault();
+
+        required_inputs.forEach((input) => {
+            if (!input.value) {
+                input.classList.add("error");
+            } else {
+                input.classList.remove("error");
+            }
+        });
+
+        if (
+            required_inputs.some((input) => input.classList.contains("error"))
+        ) {
+            return;
+        }
+
         form.reset();
         steps.forEach((step) => step.classList.remove("active"));
         var confirm = document.querySelector(".scr_quiz__confirm");
         confirm.classList.add("active");
-
-        // form.classList.add("active");
     });
 };
 

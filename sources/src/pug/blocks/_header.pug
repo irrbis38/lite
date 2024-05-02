@@ -1,7 +1,7 @@
 header.scr_header
     .container.scr_header__container
 
-        button.scr_header__logo.quiz-close(type="button" aria-label="Перейти на главную")
+        a.scr_header__logo(href="./index.html" aria-label="Перейти на главную")
             picture 
                 //- source(media="min-width: 576px" srcset="./images/logo.svg" width="145" height="19")
                 source(media="(max-width: 767px)" srcset="./images/logo-small.svg" width="170" height="37")
@@ -13,4 +13,4 @@ header.scr_header
             span +7 (928) 884-90-90
             span Звонок
 
-    .scr_header__progress: span
+    .scr_header__progress: span.progress-line

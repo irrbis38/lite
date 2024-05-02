@@ -40,10 +40,12 @@
     font-weight: 300;
     font-size: 94px;
     line-height: 1;
-    letter-spacing: 0.02em;
+    // letter-spacing: 0.02em;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
-    text-align: center;
+    // text-align: center;
     color: $color_dark2;
+    text-align-last: left;
 
     @include xl {
         margin-bottom: 10px;
@@ -56,12 +58,12 @@
 
     @include lg {
         margin-bottom: 7px;
-        font-size: 64px;
+        font-size: 62px;
     }
 
     @include r(1080px) {
         text-align: left;
-        @include fluidFontSize(56px, 64px, 992px, 1080px, 60px);
+        @include fluidFontSize(56px, 62px, 992px, 1080px, 60px);
     }
 
     @include sm {
@@ -74,14 +76,14 @@
 
     @include xs {
         margin-bottom: 15px;
-        padding-left: 10px;
+        // padding-left: 10px;
         font-size: 32px;
-        text-align: left;
+        // text-align: left;
     }
 
-    @include r(370px) {
-        padding-left: 0;
-    }
+    // @include r(370px) {
+    //     padding-left: 0;
+    // }
 }
 
 .scr_quiz__info {
@@ -91,15 +93,15 @@
         "current old"
         "current cta";
     gap: 0 30px;
-    padding-left: 10px;
+    // padding-left: 10px;
 
     @include xl {
         gap: 0 34px;
-        padding-left: 26px;
+        // padding-left: 26px;
     }
 
     @include lg {
-        padding-left: 0;
+        // padding-left: 0;
     }
 
     @include xs {
@@ -108,12 +110,12 @@
             "current old"
             "cta cta";
         gap: 0 14px;
-        padding-left: 10px;
+        // padding-left: 10px;
     }
 
-    @include r(370px) {
-        padding-left: 0;
-    }
+    // @include r(370px) {
+    //     padding-left: 0;
+    // }
 }
 
 .scr_quiz__current {
@@ -401,7 +403,7 @@
 .scr_quiz__get_btn {
     position: absolute;
     top: -4px;
-    left: 20px;
+    left: 40px;
     z-index: 3;
     display: flex;
     justify-content: center;
@@ -437,6 +439,10 @@
     @include lg {
         min-height: 90px;
         font-size: 23px;
+    }
+
+    @include sm {
+        left: 30px;
     }
 
     // position: absolute;
@@ -1059,7 +1065,7 @@
 
 .scr_quiz__return {
     min-width: 495px;
-    min-height: 100px;
+    min-height: 50px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -1076,7 +1082,7 @@
     @include xs {
         width: 100%;
         min-width: unset;
-        min-height: 80px;
+        min-height: 50px;
         font-size: 16px;
     }
 
@@ -1185,6 +1191,10 @@
 
     &:focus {
         border-bottom-color: $color_green;
+    }
+
+    &.error {
+        border-bottom-color: $color_red;
     }
 
     @include xl {
