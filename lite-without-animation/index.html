@@ -25,14 +25,11 @@
   </head>
   <body class="index">
     <header class="scr_header">
-      <div class="container scr_header__container">
-        <button class="scr_header__logo quiz-close" type="button" aria-label="Перейти на главную">
+      <div class="container scr_header__container"><a class="scr_header__logo" href="./index.html" aria-label="Перейти на главную">
           <picture> 
             <source media="(max-width: 767px)" srcset="./images/logo-small.svg" width="170" height="37"><img src="./images/logo.svg" width="145" height="19" alt="Логотип компании Лите">
-          </picture><span>Студия аппаратной косметологии</span>
-        </button><a class="scr_header__phone" href="tel:+79288849090" aria-label="Позвонить в компанию Лите"><span>+7 (928) 884-90-90</span><span>Звонок</span></a>
-      </div>
-      <div class="scr_header__progress"><span></span></div>
+          </picture><span>Студия аппаратной косметологии</span></a><a class="scr_header__phone" href="tel:+79288849090" aria-label="Позвонить в компанию Лите"><span>+7 (928) 884-90-90</span><span>Звонок</span></a></div>
+      <div class="scr_header__progress"><span class="progress-line"></span></div>
     </header>
     <main class="main">
       <div class="scr_quiz">
@@ -128,10 +125,10 @@
             <p class="scr_quiz__hint">Свяжемся с вами в ближайшее время, подробно проконсультируем и предложим удобную для вас дату</p>
             <fieldset class="scr_quiz__user_data_fieldset">
               <input class="scr_quiz__user_name scr_quiz__input" type="text" name="user_name" placeholder="ваше имя">
-              <input class="scr_quiz__user_phone scr_quiz__input" type="text" name="user_phone" placeholder="ваш номер">
+              <input class="scr_quiz__user_phone scr_quiz__input required" type="text" name="user_phone" placeholder="ваш номер">
               <div class="scr_quiz__messenger">
                 <label class="scr_quiz__messenger_label">
-                  <input type="radio" name="user_messenger"><span>ЗВОНОК</span>
+                  <input type="radio" name="user_messenger" checked><span>ЗВОНОК</span>
                 </label>
                 <label class="scr_quiz__messenger_label">
                   <input type="radio" name="user_messenger"><span>WhatsApp</span>
@@ -153,7 +150,7 @@
       </div>
     </main>
     <footer class="scr_footer">
-      <div class="container"><span class="scr_footer__copyright">© ЛИТЕ, 2024 г</span><a class="scr_footer__policy" href="#">Политика конфиденциальности</a></div>
+      <div class="container"><span class="scr_footer__copyright">© ЛИТЕ, 2024 г</span><a class="scr_footer__policy" href="./policy.html">Политика конфиденциальности</a></div>
     </footer>
     <script src="js/main.min.js"></script>
   </body>

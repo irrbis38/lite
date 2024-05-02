@@ -204,11 +204,16 @@ body.noscroll {
   max-width: 1560px;
   min-width: 320px;
   margin: 0 auto;
-  padding: 0 20px
+  padding: 0 40px
 }
 @media (max-width:1300px) {
   .container {
     max-width: 1074px
+  }
+}
+@media (max-width:991px) {
+  .container {
+    padding: 0 30px
   }
 }
 a {
@@ -456,17 +461,18 @@ textarea {
 }
 .scr_header__progress span {
   display: block;
-  position: absolute;
-  width: 100%;
-  left: 0;
-  bottom: 0;
   height: 8px;
   background-color: #7e915f;
-  -webkit-transform: translateX(-100%);
-  transform: translateX(-100%);
-  transition: -webkit-transform .2s ease-out;
-  transition: transform .2s ease-out;
-  transition: transform .2s ease-out,-webkit-transform .2s ease-out
+  width: 0;
+  transition: width .4s ease-out
+}
+@media (max-width:991px) {
+  .scr_header__progress {
+    height: 6px
+  }
+  .scr_header__progress span {
+    height: 6px
+  }
 }
 .main {
   -webkit-flex-grow: 1;
@@ -530,10 +536,11 @@ textarea {
   font-weight: 300;
   font-size: 94px;
   line-height: 1;
-  letter-spacing: .02em;
+  letter-spacing: .5px;
   text-transform: uppercase;
-  text-align: center;
-  color: #413e34
+  color: #413e34;
+  -moz-text-align-last: left;
+  text-align-last: left
 }
 @media (max-width:1600px) {
   .scr_quiz__title {
@@ -560,7 +567,7 @@ textarea {
 @media (max-width:1300px) {
   .scr_quiz__title {
     margin-bottom: 7px;
-    font-size: 64px
+    font-size: 62px
   }
 }
 @media only screen and (max-width:1080px) {
@@ -572,12 +579,12 @@ textarea {
 @media only screen and (max-width:1080px) and (min-width:992px) {
   .scr_quiz__title {
     font-size: 60px;
-    font-size: calc(.0909090909 * 100vw + -34.1818181818px)
+    font-size: calc(.0681818182 * 100vw + -11.6363636364px)
   }
 }
 @media only screen and (max-width:1080px) and (min-width:1080px) {
   .scr_quiz__title {
-    font-size: 64px
+    font-size: 62px
   }
 }
 @media (max-width:991px) {
@@ -604,44 +611,24 @@ textarea {
 @media (max-width:767px) {
   .scr_quiz__title {
     margin-bottom: 15px;
-    padding-left: 10px;
-    font-size: 32px;
-    text-align: left
-  }
-}
-@media only screen and (max-width:370px) {
-  .scr_quiz__title {
-    padding-left: 0
+    font-size: 32px
   }
 }
 .scr_quiz__info {
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-areas: "current old" "current cta";
-  gap: 0 30px;
-  padding-left: 10px
+  gap: 0 30px
 }
 @media (max-width:1600px) {
   .scr_quiz__info {
-    gap: 0 34px;
-    padding-left: 26px
-  }
-}
-@media (max-width:1300px) {
-  .scr_quiz__info {
-    padding-left: 0
+    gap: 0 34px
   }
 }
 @media (max-width:767px) {
   .scr_quiz__info {
     grid-template-areas: "current time" "current old" "cta cta";
-    gap: 0 14px;
-    padding-left: 10px
-  }
-}
-@media only screen and (max-width:370px) {
-  .scr_quiz__info {
-    padding-left: 0
+    gap: 0 14px
   }
 }
 .scr_quiz__current {
@@ -918,7 +905,7 @@ textarea {
 .scr_quiz__get_btn {
   position: absolute;
   top: -4px;
-  left: 20px;
+  left: 40px;
   z-index: 3;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -955,6 +942,11 @@ textarea {
   .scr_quiz__get_btn {
     min-height: 90px;
     font-size: 23px
+  }
+}
+@media (max-width:991px) {
+  .scr_quiz__get_btn {
+    left: 30px
   }
 }
 @media (max-width:767px) {
@@ -1459,7 +1451,7 @@ textarea {
 }
 .scr_quiz__return {
   min-width: 495px;
-  min-height: 100px;
+  min-height: 50px;
   margin: 0 auto;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1483,7 +1475,7 @@ textarea {
   .scr_quiz__return {
     width: 100%;
     min-width: unset;
-    min-height: 80px;
+    min-height: 50px;
     font-size: 16px
   }
 }
@@ -1610,6 +1602,9 @@ textarea {
 }
 .scr_quiz__input:focus {
   border-bottom-color: #7e915f
+}
+.scr_quiz__input.error {
+  border-bottom-color: #f03
 }
 @media (max-width:1600px) {
   .scr_quiz__input {
@@ -1897,6 +1892,241 @@ textarea {
   -webkit-transform: translateY(0);
   transform: translateY(0);
   opacity: 1
+}
+.policy__link {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  max-width: 495px;
+  min-height: 100px;
+  margin: 0 auto;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #7e915f;
+  transition: color .2s ease-out
+}
+@media (hover:hover) {
+  .policy__link:hover {
+    color: #2b2922
+  }
+}
+@media (max-width:1300px) {
+  .policy__link {
+    min-height: 90px;
+    font-size: 13px
+  }
+}
+@media (max-width:991px) {
+  .policy__link {
+    max-width: 421px;
+    min-height: 85px
+  }
+}
+@media (max-width:767px) {
+  .policy__link {
+    max-width: 330px;
+    min-height: 80px;
+    font-size: 16px
+  }
+}
+.policy__link_top {
+  margin: 21px auto
+}
+@media (max-width:1600px) {
+  .policy__link_top {
+    margin: 16px auto
+  }
+}
+@media (max-width:1300px) {
+  .policy__link_top {
+    margin: 14px auto
+  }
+}
+@media (max-width:991px) {
+  .policy__link_top {
+    margin: 5px auto
+  }
+}
+@media (max-width:767px) {
+  .policy__link_top {
+    margin: 0 auto
+  }
+}
+.policy__link_bottom {
+  margin-bottom: 35px
+}
+@media (max-width:1600px) {
+  .policy__link_bottom {
+    margin-bottom: 90px
+  }
+}
+@media (max-width:1300px) {
+  .policy__link_bottom {
+    margin-bottom: 30px
+  }
+}
+@media (max-width:991px) {
+  .policy__link_bottom {
+    margin-bottom: 21px
+  }
+}
+@media (max-width:767px) {
+  .policy__link_bottom {
+    margin-bottom: 25px
+  }
+}
+.policy__title {
+  margin-bottom: 126px;
+  font-weight: 300;
+  font-size: 94px;
+  line-height: 1;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: #413e34
+}
+@media (max-width:1600px) {
+  .policy__title {
+    margin-bottom: 78px;
+    font-size: 80px;
+    line-height: 95%
+  }
+}
+@media (max-width:1300px) {
+  .policy__title {
+    margin-bottom: 84px;
+    font-size: 64px
+  }
+}
+@media (max-width:991px) {
+  .policy__title {
+    margin-bottom: 76px;
+    font-size: 48px;
+    line-height: 1
+  }
+}
+@media (max-width:767px) {
+  .policy__title {
+    margin-bottom: 34px;
+    font-size: 25px;
+    line-height: 112%
+  }
+}
+@media only screen and (max-width:370px) {
+  .policy__title {
+    font-size: 20px
+  }
+}
+.policy__section {
+  max-width: 1247px
+}
+.policy__section:not(:last-child) {
+  margin-bottom: 70px
+}
+@media (max-width:1300px) {
+  .policy__section:not(:last-child) {
+    margin-bottom: 61px
+  }
+}
+.policy__section h2 {
+  position: relative;
+  display: inline-block
+}
+.policy__section h2::after {
+  content: "";
+  position: absolute;
+  display: block;
+  bottom: -7px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #7e915f
+}
+@media (max-width:991px) {
+  .policy__section h2::after {
+    bottom: -3px;
+    height: 2px
+  }
+}
+.policy__section h2,
+.policy__section li,
+.policy__section p {
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: .02em;
+  color: #000
+}
+.policy__section h2 {
+  margin-bottom: 23px;
+  font-size: 20px;
+  text-transform: uppercase
+}
+@media (max-width:1300px) {
+  .policy__section h2 {
+    font-size: 18px
+  }
+}
+@media (max-width:991px) {
+  .policy__section h2 {
+    font-size: 16px;
+    line-height: 136%
+  }
+}
+@media (max-width:767px) {
+  .policy__section h2 {
+    margin-bottom: 14px;
+    font-size: 14px;
+    line-height: 122%
+  }
+}
+.policy__section li,
+.policy__section p {
+  font-size: 18px
+}
+@media (max-width:1300px) {
+  .policy__section li,
+  .policy__section p {
+    font-size: 16px
+  }
+}
+@media (max-width:991px) {
+  .policy__section li,
+  .policy__section p {
+    font-size: 14px;
+    line-height: 136%
+  }
+}
+@media (max-width:767px) {
+  .policy__section li,
+  .policy__section p {
+    font-size: 12px;
+    line-height: 122%
+  }
+}
+.policy__section p:not(:last-child),
+.policy__section ul:not(:last-child) {
+  margin-bottom: 27px
+}
+@media (max-width:1300px) {
+  .policy__section p:not(:last-child),
+  .policy__section ul:not(:last-child) {
+    margin-bottom: 22px
+  }
+}
+@media (max-width:991px) {
+  .policy__section p:not(:last-child),
+  .policy__section ul:not(:last-child) {
+    margin-bottom: 14px
+  }
 }
 .scr_footer {
   min-height: 80px;
