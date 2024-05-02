@@ -47,21 +47,9 @@ body.noscroll {
     margin: 0 auto;
     padding: 0 20px;
 
-    // @include sm {
-    //     padding: 0 20px;
-    // }
-
     @include lg {
         max-width: 1074px;
     }
-
-    // @include xs {
-    //     padding: 0 30px;
-    // }
-
-    // @include r(360px) {
-    //     padding: 0 20px;
-    // }
 }
 
 a {
@@ -105,6 +93,13 @@ input {
     outline: none;
     color: inherit;
     background-color: transparent;
+}
+
+input,
+a,
+button {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-tap-highlight-color: transparent;
 }
 
 button {
