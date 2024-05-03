@@ -260,7 +260,6 @@ input {
 a,
 button,
 input {
-  -webkit-tap-highlight-color: rgba(255,255,255,0);
   -webkit-tap-highlight-color: transparent
 }
 button {
@@ -468,6 +467,7 @@ textarea {
 }
 @media (max-width:991px) {
   .scr_header__progress {
+    bottom: -6px;
     height: 6px
   }
   .scr_header__progress span {
@@ -1278,8 +1278,10 @@ textarea {
   width: 1px;
   height: 1px;
   z-index: -1;
+  left: 0;
   border: 0;
-  padding: 0
+  padding: 0;
+  opacity: 0
 }
 .scr_quiz__label input:checked + .scr_quiz__fake {
   color: #fff;
@@ -1365,8 +1367,7 @@ textarea {
   display: none
 }
 .scr_quiz__label_checkbox .scr_quiz__fake::after {
-  border: 2px solid #c5c5bb;
-  transition: border-color .2s ease-out
+  border: 2px solid #c5c5bb
 }
 @media (hover:hover) {
   .scr_quiz__label_checkbox .scr_quiz__fake:hover::after {
@@ -1401,9 +1402,6 @@ textarea {
   color: #8d8d80;
   background-color: #f3f3ef;
   cursor: pointer;
-  transition: color .2s ease-out,background-color .2s ease-out,-webkit-transform .2s ease-out;
-  transition: color .2s ease-out,background-color .2s ease-out,transform .2s ease-out;
-  transition: color .2s ease-out,background-color .2s ease-out,transform .2s ease-out,-webkit-transform .2s ease-out;
   -webkit-tap-highlight-color: transparent
 }
 @media (hover:hover) {
