@@ -187,6 +187,7 @@
     }
 
     @include sm {
+        bottom: -6px;
         height: 6px;
 
         span {
