@@ -204,6 +204,70 @@ var formSubmit = (steps) => {
 //     mqMin767.addEventListener("change", handleMQ);
 // };
 
+var initContacts = () => {
+    var buttons = document.querySelectorAll(".contacts__copy");
+
+    if (buttons.length < 1) return;
+
+    buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            var link = btn.previousElementSibling;
+            if (!link) return;
+
+            const value = link.textContent;
+            navigator.clipboard.writeText(value);
+        });
+    });
+};
+
+var doCreateMapScript = (cb) => {
+    setTimeout(function () {
+        var script = document.createElement("script");
+        script.async = false;
+        script.src = "https://api-maps.yandex.ru/2.1/?apikey=key&lang=ru_RU";
+        document.body.appendChild(script);
+        script.onload = () => cb();
+    }, 2000);
+};
+
+var initMap = () => {
+    var init = () => {
+        var coords = [45.054809, 38.970974];
+        var mark_link = "images/mark.svg";
+
+        if (ymaps) {
+            var map = new ymaps.Map("map", {
+                center: coords,
+                zoom: 17,
+            });
+
+            var placemark = new ymaps.Placemark(
+                coords,
+                {},
+                {
+                    iconLayout: "default#image",
+                    iconImageHref: mark_link,
+                    iconImageSize: [100, 100],
+                    iconImageOffset: [-60, -80],
+                }
+            );
+
+            map.controls.remove("geolocationControl"); // удаляем геолокацию
+            map.controls.remove("searchControl"); // удаляем поиск
+            map.controls.remove("trafficControl"); // удаляем контроль трафика
+            map.controls.remove("typeSelector"); // удаляем тип
+            map.controls.remove("fullscreenControl"); // удаляем кнопку перехода в полноэкранный режим
+            // map.controls.remove("zoomControl"); // удаляем контрол зуммирования
+            map.controls.remove("rulerControl"); // удаляем контрол правил
+            // map.behaviors.disable(["scrollZoom"]); // отключаем скролл карты (опционально)
+
+            map.geoObjects.add(placemark);
+        }
+    };
+
+    ymaps.ready(init);
+};
+
 document.addEventListener("DOMContentLoaded", () => {
     var interview = document.querySelector(".scr_quiz__interview");
     var steps = Array.from(document.querySelectorAll(".scr_quiz__step"));
@@ -214,6 +278,10 @@ document.addEventListener("DOMContentLoaded", () => {
     initBackwardBtns(interview, steps);
     initForwardBtns(interview, steps);
     formSubmit(steps);
+    initContacts();
+
+    var map = document.getElementById("map");
+    map && doCreateMapScript(initMap);
 
     // initMagneticButtons();
 });

@@ -31,14 +31,19 @@ html(lang="ru")
         
         link(rel="stylesheet" href="css/main.min.css")
 
-    body(class= pageName)
+    body
+
         block header
-            include ../blocks/_header
+            if pageName == "basic"
+                include ../blocks/_header_basic
+            else
+                include ../blocks/_header
 
         block main
             include ../blocks/_main
 
-        block footer
-            include ../blocks/_footer
+        if pageName != "basic"
+            block footer
+                include ../blocks/_footer
         block js
             script(src="js/main.min.js")

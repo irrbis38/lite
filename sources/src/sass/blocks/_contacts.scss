@@ -1,0 +1,76 @@
+.contacts {
+    margin-bottom: 23px;
+}
+
+.contacts__list {
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.contacts__item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 75px;
+    padding: 0 30px;
+
+    &:not(:last-child) {
+        margin-bottom: 4px;
+    }
+}
+
+.contacts__link {
+    font-weight: 400;
+    font-size: 23px;
+    letter-spacing: 0.03em;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    font-weight: 500;
+    color: $color_dark1;
+
+    &.contacts__email {
+        letter-spacing: -0.03em;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: $color_green;
+        transition: transform 0.2s ease-out;
+        pointer-events: none;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            &::after {
+                transform: scaleX(1.05);
+            }
+        }
+    }
+
+    @include r(375px) {
+        font-size: 18px;
+    }
+}
+
+.contacts__copy {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.8333 17.5H6.66667V5.83337H15.8333M15.8333 4.16671H6.66667C6.22464 4.16671 5.80072 4.3423 5.48816 4.65486C5.1756 4.96742 5.00001 5.39135 5.00001 5.83337V17.5C5.00001 17.9421 5.1756 18.366 5.48816 18.6786C5.80072 18.9911 6.22464 19.1667 6.66667 19.1667H15.8333C16.2754 19.1667 16.6993 18.9911 17.0118 18.6786C17.3244 18.366 17.5 17.9421 17.5 17.5V5.83337C17.5 5.39135 17.3244 4.96742 17.0118 4.65486C16.6993 4.3423 16.2754 4.16671 15.8333 4.16671ZM13.3333 0.833374H3.33334C2.89131 0.833374 2.46739 1.00897 2.15483 1.32153C1.84227 1.63409 1.66667 2.05801 1.66667 2.50004V14.1667H3.33334V2.50004H13.3333V0.833374Z' fill='%23C5C5BB' /%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+}

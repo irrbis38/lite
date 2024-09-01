@@ -1,0 +1,26 @@
+.header_basic {
+    position: relative;
+    margin-bottom: 48px;
+    padding-top: 50px;
+}
+
+.header_basic__title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.header_basic__logo {
+    width: 260px;
+
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+}
