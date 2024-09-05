@@ -19,26 +19,16 @@
     text-transform: uppercase;
     text-align: center;
     color: $color_dark1;
-    transition: background-color 0.2s ease-out;
+    transition: color 0.2s ease-out, background-color 0.2s ease-out;
 
     @media (hover: hover) {
         &:hover {
-            background-color: #d0d0c0;
+            color: $color_white;
+            background-color: #c5c5bb;
         }
     }
 
     &:not(:last-child) {
         margin-bottom: 6px;
-    }
-
-    &.social__link--main {
-        color: #fff;
-        background-color: #c5c5bb;
-
-        @media (hover: hover) {
-            &:hover {
-                background-color: #a6a696;
-            }
-        }
     }
 }
